@@ -1,9 +1,39 @@
-function Articles(){
-  return (  <div className="general">
-    <h2>Here are a list of articles</h2>
+import { useState, useEffect } from "react";
+import ArticlesCard from "./ArticlesCard";
+import { fetchArticles } from "./api";
+import { useParams, Link } from "react-router-dom";
+
+function Articles() {
+  const [articles, setArticles] = useState([]);
+  const { article_id } = useParams(); 
+
+  useEffect(() => {
+    if (article_id) {
+      fetchArticles(article_id)  
+        .then((response) => {
+          setArticles([response]);  
+        })
+        
+    } else {
+      fetchArticles()  
+        .then((response) => {
+          setArticles(response.articles);  
+        })
+       
+    }
+  }, [article_id]);
+
+  return (
+    <div className="general">
+      <h2>All Articles</h2>
+      {articles.map((article) => (
+        <div key={article.article_id} className="article">
+          <ArticlesCard {...article} />
+          <Link to={`/articles/${article.article_id}`}>View Article</Link>  {/* Navigate to the article detail */}
+        </div>
+      ))}
     </div>
-  )
-    //step 1. getTopics here and step 2. make a list of clickable links
+  );
 }
 
-export default  Articles;
+export default Articles;
