@@ -25,7 +25,7 @@ const api = axios.create({
 
 export const fetchArticleComments = (id) => {
     return api.get(`/articles/${id}/comments`).then(({ data }) => {
-        console.log(data.comments, "<<comments???")
+        
       return data.comments;
     });
   };
