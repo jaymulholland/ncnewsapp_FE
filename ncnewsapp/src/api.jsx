@@ -5,17 +5,28 @@ const api = axios.create({
   });
 
 
-  export const fetchArticles = (id) => {
+  export const fetchArticles = () => {
 
+    return api.get("/articles").then(({data}) =>{
+       
+        return data;
+    });
+
+  }
+
+  export const fetchSingleArticles = (id) => {
     if (id){
         return api.get(`/articles/${id}`).then(({data}) =>{
             return data;
         })
     }
-else {
-    return api.get("/articles").then(({data}) =>{
-       
-        return data;
-    });
+    
 }
-  }
+
+export const fetchArticleComments = (id) => {
+    return api.get(`/articles/${id}/comments`).then(({ data }) => {
+        console.log(data.comments, "<<comments???")
+      return data.comments;
+    });
+  };
+  
