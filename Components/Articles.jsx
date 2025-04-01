@@ -45,10 +45,9 @@ function Articles() {
         articles.map((article) => (
           <div key={article.article_id} className="article">
             <ArticlesCard {...article} />
-            
             {article_id && <CommentsCard comments={comments} />}
             <br></br>
-            <br></br>
+            
           </div>
         ))
       ) : (

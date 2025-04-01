@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(31, 27, 27);
   text-decoration: inherit;
 }
 a:hover {
@@ -98,8 +98,11 @@ h1 {
 }
 
 .article-title {
+  text-align: left;
   margin: 0;
-  font-size: 1.5rem;
+color: #1a1a1a;
+  align-items: start;
+  font-size: 1.25rem;
   white-space: normal; 
   overflow-wrap: break-word;
 }
@@ -113,7 +116,7 @@ h1 {
   color: #333;
   justify-content: center;
   align-items: center;
-  
+  text-align: left;
 }
 
 .meta-item {
@@ -140,11 +143,11 @@ h1 {
 
 .article-meta {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 5px;
   margin-top: 10px;
   text-align: center;
-  
+  font-size: 13px;
   max-width: 100%;
   
 }
@@ -182,7 +185,7 @@ h1 {
 
 .comment-details {
   border-top: 1px solid #ddd;
- 
+  font-size: 13px;
  align-items: center;
   border-radius: 2px;
   display: flex;
@@ -201,10 +204,10 @@ h1 {
 }
 
 .comment-body {
-
+  text-align: left;
   padding-left: 5%;
   padding-right: 5%;
-  text-align: center;
+  
 }
 
 
