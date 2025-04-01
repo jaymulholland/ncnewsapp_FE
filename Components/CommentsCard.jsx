@@ -14,7 +14,6 @@ export default function CommentsCard({ comments }) {
                 <strong>By: {comment.author}</strong>
                 <p>{formattedDate}</p>
                 <p>{comment.votes} votes</p>
-                
               </div>
               <p className="comment-body">{comment.body}</p>
             </div>

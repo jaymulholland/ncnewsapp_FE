@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { VoteOnPost } from "./api";
+import { VoteOnPost } from "../src/api";
 
-const ArticleVote = ({ article_id, initialVotes }) => {
+export const ArticleVote = ({ article_id, initialVotes }) => {
   const [votes, setVotes] = useState(initialVotes);
   const [hasVoted, setHasVoted] = useState(false);
 
   const handleVote = () => {
-    if (hasVoted) return;
+    if (hasVoted) return; 
 
     setVotes((prevVotes) => prevVotes + 1);
     setHasVoted(true);
@@ -15,13 +15,12 @@ const ArticleVote = ({ article_id, initialVotes }) => {
       .catch(() => {
         setVotes((prevVotes) => prevVotes - 1);
         setHasVoted(false);
-        
       });
   };
 
   return (
-    <button onClick={handleVote}>
-      <strong>+1</strong> ({votes})
+    <button className="button-upvote" onClick={handleVote} disabled={hasVoted}>
+      <strong>Upvote</strong> 
     </button>
   );
 };

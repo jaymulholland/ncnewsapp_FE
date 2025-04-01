@@ -36,4 +36,14 @@ export const fetchArticleComments = (id) => {
       .patch(`/articles/${id}`, { inc_votes: 1 }) 
       .then(({ data }) => data.article) 
   };
+
+
+  export const PostComment = (id, comment) => {
+    return api
+      .post(`/articles/${id}/comments`, {
+        author: comment.author,  
+        body: comment.body       
+      })
+      .then(({ data }) => data.article);
+  };
   

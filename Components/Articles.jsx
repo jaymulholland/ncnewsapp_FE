@@ -4,6 +4,7 @@ import CommentsCard from "./CommentsCard";
 import { fetchArticles, fetchSingleArticles, fetchArticleComments } from "../src/api";
 import { useParams, Link } from "react-router-dom";
 import Loading from "./Loading";
+import  PostComment  from "./PostCommentField";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -46,6 +47,7 @@ function Articles() {
           <div key={article.article_id} className="article">
             <ArticlesCard {...article} />
             {article_id && <CommentsCard comments={comments} />}
+            {article_id && <PostComment comments={comments} />}
             <br></br>
             
           </div>
