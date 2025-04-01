@@ -1,9 +1,9 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './Header'
+import Header from '../Components/Header'
 import Home from './Home'
-import Topics from './Topics'
-import Articles from './Articles'
+import Topics from '../Components/Topics'
+import Articles from '../Components/Articles'
 import './App.css'
 
 function App() {

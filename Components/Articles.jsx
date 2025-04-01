@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ArticlesCard from "./ArticlesCard";
 import CommentsCard from "./CommentsCard";
-import { fetchArticles, fetchSingleArticles, fetchArticleComments } from "./api";
+import { fetchArticles, fetchSingleArticles, fetchArticleComments } from "../src/api";
 import { useParams, Link } from "react-router-dom";
 import Loading from "./Loading";
 
@@ -10,7 +10,7 @@ function Articles() {
   const [comments, setComments] = useState([]);
   const { article_id } = useParams(); 
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     setIsLoading(true);
 
@@ -45,8 +45,8 @@ function Articles() {
         articles.map((article) => (
           <div key={article.article_id} className="article">
             <ArticlesCard {...article} />
-            
-              <CommentsCard comments={comments} />
+            {article_id && <CommentsCard comments={comments} />}
+            <br></br>
             
           </div>
         ))
