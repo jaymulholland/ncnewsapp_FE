@@ -1,37 +1,58 @@
 import { useState, useEffect } from "react";
 import ArticlesCard from "./ArticlesCard";
-import { fetchArticles } from "./api";
+import CommentsCard from "./CommentsCard";
+import { fetchArticles, fetchSingleArticles, fetchArticleComments } from "./api";
 import { useParams, Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
+  const [comments, setComments] = useState([]);
   const { article_id } = useParams(); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
+
     if (article_id) {
-      fetchArticles(article_id)  
+      fetchSingleArticles(article_id)
         .then((response) => {
-          setArticles([response]);  
+          setArticles([response.article]); 
+          return fetchArticleComments(article_id);
         })
-        
+        .then((commentsResponse) => {
+          setComments(commentsResponse);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     } else {
-      fetchArticles()  
+      fetchArticles()
         .then((response) => {
-          setArticles(response.articles);  
+          setArticles(response.articles);
         })
-       
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [article_id]);
 
+  if (isLoading) return <Loading />;
+
   return (
     <div className="general">
-      <h2>All Articles</h2>
-      {articles.map((article) => (
-        <div key={article.article_id} className="article">
-          <ArticlesCard {...article} />
-          <Link to={`/articles/${article.article_id}`}>View Article</Link>  {/* Navigate to the article detail */}
-        </div>
-      ))}
+      {articles.length > 0 ? (
+        articles.map((article) => (
+          <div key={article.article_id} className="article">
+            <ArticlesCard {...article} />
+            
+              <CommentsCard comments={comments} />
+            
+          </div>
+        ))
+      ) : (
+        <p>No article found.</p>
+      )}
     </div>
   );
 }
