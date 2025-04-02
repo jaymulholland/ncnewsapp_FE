@@ -31,19 +31,17 @@ export const fetchArticleComments = (id) => {
     });
   };
 
-  export const VoteOnPost = (id) => {
+  export const VoteOnArticle = (id) => {
     return api
       .patch(`/articles/${id}`, { inc_votes: 1 }) 
       .then(({ data }) => data.article) 
   };
 
 
-  export const PostComment = (id, comment) => {
+ export const postCommentAPI = (article_id, comment) => {
+  console.log(comment)
     return api
-      .post(`/articles/${id}/comments`, {
-        author: comment.author,  
-        body: comment.body       
-      })
-      .then(({ data }) => data.article);
+    .post(`https://nc-news-app-2ozn.onrender.com/api/articles/${article_id}/comments`, comment)
+      .then(({ data }) => data.comment);
   };
   

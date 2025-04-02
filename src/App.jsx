@@ -5,9 +5,11 @@ import Home from './Home'
 import Topics from '../Components/Topics'
 import Articles from '../Components/Articles'
 import './App.css'
+import CommentsCard from '../Components/CommentsCard'
+import { PostComment } from '../Components/ArticlesCard'
 
 function App() {
-  // const [count, setCount] = useState(0)
+
 
   return (
     <Router>
@@ -18,16 +20,9 @@ function App() {
     <Route path='/api/topics' element={<Topics/>}/>
     <Route path='/api/articles' element={<Articles/>}/>
     <Route path="/articles/:article_id" element={<Articles />} />
-
+    <Route path="/articles/:article_id/comments" element={<PostComment />} />
     </Routes>
     
-     
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-       
-      </div> */}
       <p className="read-the-docs">
         Made by Jay
       </p>
