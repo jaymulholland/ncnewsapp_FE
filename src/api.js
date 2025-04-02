@@ -39,9 +39,15 @@ export const fetchArticleComments = (id) => {
 
 
  export const postCommentAPI = (article_id, comment) => {
-  console.log(comment)
+  
     return api
-    .post(`https://nc-news-app-2ozn.onrender.com/api/articles/${article_id}/comments`, comment)
+    .post(`/articles/${article_id}/comments`, comment)
       .then(({ data }) => data.comment);
   };
+
+  export const deleteComment = (comment_id) => {
+
+return api.delete(`/comments/${comment_id}`)
+
+  }
   

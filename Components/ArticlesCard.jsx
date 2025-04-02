@@ -22,12 +22,12 @@ export function PostComment({ onCommentPosted }) {
 
     postCommentAPI(article_id, formattedComment)  
       .then((newComment) => {
-        console.log("Comment posted successfully:", newComment);
+        
         setPostComment("");
         if (onCommentPosted) onCommentPosted(newComment);
       })
       .catch((error) => {
-        console.error("Failed to post comment:", error);
+        
         setError("Failed to post comment. Please try again.");
       })
       .finally(() => {
