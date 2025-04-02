@@ -11,10 +11,12 @@ export default function CommentsCard({ comments }) {
           return (
             <div key={comment.comment_id} className="comment">
               <div className="comment-details">
-                <strong>By: {comment.author}</strong>
-                <p>{formattedDate}</p>
-                <p>{comment.votes} votes</p>
+                <strong>{comment.author}</strong>
                 
+               
+                <p>{formattedDate}</p>
+                
+                <p>{comment.votes} votes</p>
               </div>
               <p className="comment-body">{comment.body}</p>
             </div>

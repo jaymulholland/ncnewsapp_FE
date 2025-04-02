@@ -4,13 +4,14 @@ import CommentsCard from "./CommentsCard";
 import { fetchArticles, fetchSingleArticles, fetchArticleComments } from "../src/api";
 import { useParams, Link } from "react-router-dom";
 import Loading from "./Loading";
+import { PostComment } from "./ArticlesCard";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [comments, setComments] = useState([]);
   const { article_id } = useParams(); 
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     setIsLoading(true);
 
@@ -37,6 +38,10 @@ function Articles() {
     }
   }, [article_id]);
 
+  const handleNewComment = (newComment) => {
+    setComments((prevComments) => [...prevComments, newComment]); // Adds new comment to the comments array
+  };
+
   if (isLoading) return <Loading />;
 
   return (
@@ -46,8 +51,8 @@ function Articles() {
           <div key={article.article_id} className="article">
             <ArticlesCard {...article} />
             {article_id && <CommentsCard comments={comments} />}
-            <br></br>
-            
+            {article_id && <PostComment article_id={article.article_id} onCommentPosted={handleNewComment} />}
+            <br />
           </div>
         ))
       ) : (
