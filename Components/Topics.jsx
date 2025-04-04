@@ -1,11 +1,26 @@
-function Topics(){
-  return ( 
-    <div className="general">
+import { useState, useEffect } from "react";
+import { fetchTopics } from "../src/api";
+import TopicsCard from "./TopicsCard";
 
-     <h2>Here are a list of topics</h2>
-     </div>
-  )
-    //step 1. getTopics here and step 2. make a list of clickable links
+function Topics() {
+  const [topics, setTopics] = useState([]);
+
+  useEffect(() => {
+    fetchTopics().then((data) => {
+      setTopics(data);
+    });
+  }, []);
+
+  return (
+    <div className="general">
+      <h2>Topics</h2>
+      <ul>
+        
+            <TopicsCard {...topics} />
+          
+      </ul>
+    </div>
+  );
 }
 
-export default  Topics;
+export default Topics;

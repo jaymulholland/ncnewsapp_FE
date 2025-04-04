@@ -5,6 +5,14 @@ const api = axios.create({
     baseURL: "https://nc-news-app-2ozn.onrender.com/api",
   });
 
+  export const fetchTopics = () => {
+
+    return api.get("/topics").then(({data}) =>{
+       
+        return data;
+    });
+
+  }
 
   export const fetchArticles = () => {
 
