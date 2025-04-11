@@ -1,12 +1,69 @@
-# React + Vite
+# 📰 NC News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack news aggregation and discussion platform built as part of the Northcoders Full Stack Software Development course. The app allows users to browse articles, read comments, vote, and interact with content across different topics.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [Live Frontend](https://your-live-frontend-link.com)  
+👉 [Live Backend API](https://your-live-backend-api-link.com/api)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js
+- Axios
+- React Router
+- CSS Modules / Styled Components (optional)
+
+**Backend:**
+- Node.js
+- Express.js
+- PostgreSQL
+
+**Testing:**
+- Jest
+- Supertest
+
+---
+
+
+---
+
+## 🚀 Features
+
+- View all articles and filter by topic
+- Upvote or downvote articles and comments
+- Add or delete your own comments
+- Mobile responsive frontend
+- Robust REST API with detailed error handling
+
+
+
+## 🔨 Set Up
+
+# In the backend directory
+npm install
+npm run seed-dev
+
+# In the frontend directory
+npm install
+
+## 🧪 Testing
+
+To run tests:
+
+# In the backend directory
+npm test
+
+# In the frontend directory
+npm test
+
+## 🏃 Running
+
+# In the backend directory
+
+
+# In the frontend directory
+npm run dev
