@@ -2,11 +2,6 @@
 
 A full-stack news aggregation and discussion platform built as part of the Northcoders Full Stack Software Development course. The app allows users to browse articles, read comments, vote, and interact with content across different topics.
 
-## 🔗 Live Demo
-
-👉 [Live Frontend](https://your-live-frontend-link.com)  
-👉 [Live Backend API](https://your-live-backend-api-link.com/api)
-
 ---
 
 ## 🛠️ Tech Stack
