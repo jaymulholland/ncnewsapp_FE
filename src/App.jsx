@@ -5,7 +5,7 @@ import Home from './Home'
 import Topics from '../Components/Topics'
 import Articles from '../Components/Articles'
 import './App.css'
-import CommentsCard from '../Components/CommentsCard'
+
 import { PostComment } from '../Components/ArticlesCard'
 
 function App() {
@@ -17,7 +17,8 @@ function App() {
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/home' element={<Home/>}/>
-    <Route path='/api/topics' element={<Topics/>}/>
+    <Route path='/api/Topics/' element={<Topics/>}/>
+    <Route path="/topics/:topic_slug/articles" element={<Articles />} />
     <Route path='/api/articles' element={<Articles/>}/>
     <Route path="/articles/:article_id" element={<Articles />} />
     <Route path="/articles/:article_id/comments" element={<PostComment />} />
